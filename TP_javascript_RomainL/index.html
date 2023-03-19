@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <meta charset="utf-8">
+        <title>TP_Romain_LAVAYSSIERE</title>
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+    </header>
+    <body class="bg-success">
+
+        <nav class="nav">
+            <div class="image-container">
+                <img src="logo.jpg" alt="Logo" width="150" height="75" >
+              </a>
+            </div>
+          </nav>
+
+        <div class="alert alert-success" role="alert">
+            Aidez notre association partenaire faites un <a href="https://www.aspas-nature.org/nous-soutenir/faire-un-don/" class="alert-link">don</a>!
+          </div>
+
+          <div id="container" class="text-center" class="image-container">
+            <button class="btn btn-success" type="submit" id="btn" > Générer une image </button>
+        </div>
+        <img src="" id="image" class="img">
+
+
+
+
+        <script>
+            const fetchPhotos = document.getElementById('btn')
+            const container = document.getElementById('container')
+
+            fetchPhotos.addEventListener('click', function() {
+            
+		     fetch('https://randomfox.ca/floof/')
+            .then((httpResponse) =>{
+            console.log('httpResponse: ', httpResponse);
+            return httpResponse.json()
+
+            }).then(data => {
+                console.log(data.image)
+                image.src = data.image
+            })
+        })
+        </script>
+    </body>
+
+</html>
